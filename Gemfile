@@ -8,6 +8,10 @@ gem 'mysql2'
 
 # Use SCSS for stylesheets
 # gem 'sass-rails', '~> 4.0.0'
+gem 'devise', '3.0.0.rc'
+
+gem 'rb-readline' #remove it
+
 gem "therubyracer"
 gem "less-rails"
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
