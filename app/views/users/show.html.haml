@@ -2,38 +2,28 @@
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.titleize
 
-%p
-  %strong= model_class.human_attribute_name(:full_name) + ':'
-  %br
-  = @user.full_name
-%p
-  %strong= model_class.human_attribute_name(:login) + ':'
-  %br
-  = @user.login
-%p
-  %strong= model_class.human_attribute_name(:email) + ':'
-  %br
-  = @user.email
-%p
-  %strong= model_class.human_attribute_name(:birthday) + ':'
-  %br
-  = @user.birthday
-%p
-  %strong= model_class.human_attribute_name(:adress) + ':'
-  %br
-  = @user.adress
-%p
-  %strong= model_class.human_attribute_name(:city) + ':'
-  %br
-  = @user.city
-%p
-  %strong= model_class.human_attribute_name(:state) + ':'
-  %br
-  = @user.state
-%p
-  %strong= model_class.human_attribute_name(:zip) + ':'
-  %br
-  = @user.zip
+%dl.dl-horizontal
+  %dt.strong= model_class.human_attribute_name(:full_name) + ':'
+  %dd= @user.full_name
+  %dt.strong= model_class.human_attribute_name(:login) + ':'
+  %dd= @user.login
+  %dt.strong= model_class.human_attribute_name(:email) + ':'
+  %dd= @user.email
+  %dt.strong= model_class.human_attribute_name(:birthday) + ':'
+  %dd= @user.birthday
+  %dt.strong= model_class.human_attribute_name(:country) + ':'
+  %dd= @user.country
+  %dt.strong= model_class.human_attribute_name(:adress) + ':'
+  %dd= @user.adress
+  %dt.strong= model_class.human_attribute_name(:city) + ':'
+  %dd= @user.city
+  %dt.strong= model_class.human_attribute_name(:state) + ':'
+  %dd= @user.state
+  %dt.strong= model_class.human_attribute_name(:zip) + ':'
+  %dd= @user.zip
+  - if @user.role_id?
+    %dt.strong Role level:
+    %dd= @user.role_name
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), users_path, :class => 'btn'

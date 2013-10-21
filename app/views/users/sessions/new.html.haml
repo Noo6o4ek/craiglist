@@ -1,0 +1,7 @@
+%h2 Sign in!
+= simple_form_for resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-horizontal' } do |f|
+  = f.input :login, :autofocus => true
+  = f.input :password
+  .form-actions
+    = f.submit "Sign in", :class => 'btn btn-success'
+= render "users/shared/links"

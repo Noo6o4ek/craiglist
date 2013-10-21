@@ -1,36 +1,16 @@
-= form_for @user, :html => { :class => 'form-horizontal' } do |f|
-  .control-group
-    = f.label :full_name, :class => 'control-label'
-    .controls
-      = f.text_field :full_name, :class => 'text_field'
-  .control-group
-    = f.label :login, :class => 'control-label'
-    .controls
-      = f.text_field :login, :class => 'text_field'
-  .control-group
-    = f.label :email, :class => 'control-label'
-    .controls
-      = f.text_field :email, :class => 'text_field'
-  .control-group
-    = f.label :birthday, :class => 'control-label'
-    .controls
-      = f.text_field :birthday, :class => 'text_field'
-  .control-group
-    = f.label :adress, :class => 'control-label'
-    .controls
-      = f.text_field :adress, :class => 'text_field'
-  .control-group
-    = f.label :city, :class => 'control-label'
-    .controls
-      = f.text_field :city, :class => 'text_field'
-  .control-group
-    = f.label :state, :class => 'control-label'
-    .controls
-      = f.text_field :state, :class => 'text_field'
-  .control-group
-    = f.label :zip, :class => 'control-label'
-    .controls
-      = f.text_field :zip, :class => 'text_field'
+= simple_form_for @user, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :login, autofocus: true
+  = f.input :full_name
+  = f.input :email
+  = f.input :birthday, as: :date
+  = f.input :country
+  = f.input :adress
+  = f.input :city
+  = f.input :state
+  = f.input :zip
+  / = f.association :user_role
+  = f.association :user_role, collection: UserRoles.all.map{ |r| [r.name, r.id] }, as: :radio_buttons
+  / = f.association :user_role, collection: (@user.role_level_roles || []).map{ |u| [u.full_name, u.id] }, prompt: t('users.form.select_user_role'), style: 'display:none;', include_blank: false
   .form-actions
-    = f.submit nil, :class => 'btn btn-primary'
-    = link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn'
+    = f.submit nil, :class => 'btn btn-success'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn btn-primary'
