@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131021145044) do
+ActiveRecord::Schema.define(version: 20131021203054) do
 
   create_table "user_roles", force: true do |t|
     t.string   "name"
@@ -41,6 +41,9 @@ ActiveRecord::Schema.define(version: 20131021145044) do
     t.string   "last_sign_in_ip"
     t.integer  "role_id"
     t.string   "country"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

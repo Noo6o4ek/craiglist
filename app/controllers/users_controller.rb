@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @json = @user.to_gmaps4rails
   end
 
   # GET /users/new
