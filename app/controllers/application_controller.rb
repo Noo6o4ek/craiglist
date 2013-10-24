@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_devise_params, if: :devise_controller?
   
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:error] = "You can't perform this action."
+    redirect_to root_url
+  end
+
   protected
 
   def configure_devise_params
