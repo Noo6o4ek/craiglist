@@ -3,8 +3,9 @@
   = devise_error_messages!
   .control_group
     = f.input :login, autofocus: true
-    = f.input :password
-    = f.input :password_confirmation
+    - if f.object.password_required?
+      = f.input :password
+      = f.input :password_confirmation
     = f.input :full_name
     = f.input :email
     = f.input :birthday, as: :date

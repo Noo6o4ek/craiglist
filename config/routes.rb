@@ -1,5 +1,5 @@
 Craiglist::Application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callback"}
   resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.

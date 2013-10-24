@@ -27,4 +27,6 @@ Craiglist::Application.configure do
   # number of complex assets.
   config.assets.debug = true
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  ENV['TWITTER_CONSUMER_KEY'] = 'aFpweY9EhAfuGmCy9iySzA'
+  ENV['TWITTER_CONSUMER_SECRET'] = '35AQ22y4vdxWratAnSmXcpIV1tbcPseB3n6dMjN4pA'
 end

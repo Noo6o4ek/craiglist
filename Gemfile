@@ -19,6 +19,7 @@ gem 'haml-rails'
 gem 'simple_form'
 gem 'country_select'
 gem 'gmaps4rails'
+gem 'omniauth-twitter'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

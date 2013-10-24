@@ -18,7 +18,7 @@
   %tbody
     - @users.each do |user|
       %tr
-        %td= link_to user.id, user_path(user)
+        %td= link_to user.id, user_path(user), 'data-no-turbolink' => true
         %td= user.full_name
         %td= user.login
         %td= user.email

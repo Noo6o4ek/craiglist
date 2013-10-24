@@ -6,7 +6,8 @@
     = f.input :login, autofocus: true
     = f.input :password, hint: "Leave blank if you don't want to change it"
     = f.input :password_confirmation
-    = f.input :current_password, hint: "We need your current password to confirm your changes"
+    - if f.object.encrypted_password.present?
+      = f.input :current_password, hint: "We need your current password to confirm your changes"
     = f.input :full_name
     = f.input :email
     = f.input :birthday, as: :date
