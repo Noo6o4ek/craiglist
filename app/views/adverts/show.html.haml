@@ -1,0 +1,14 @@
+- model_class = Advert
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.titleize
+%p
+  %b Description:
+  = @advert.description
+  = image_tag(@advert.image.url)
+/ %p
+/   %b IMAGE:
+/   = image_tag @advert.image_url.to_s
+
+= link_to 'Edit', edit_advert_path(@advert)
+\|
+= link_to 'Back', adverts_path

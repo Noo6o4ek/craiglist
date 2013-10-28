@@ -1,0 +1,17 @@
+- model_class = Advert
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+
+- @adverts.each do |advert|
+  .row
+    .span9
+      = image_tag(advert.image.url(:thumb), align: 'left')
+      = advert.description.truncate(160, :separator => ' ')
+      = link_to 'Show', advert
+      = link_to 'Edit', edit_advert_path(advert)
+      = link_to 'Destroy', advert, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %br
+
+%br
+
+= link_to 'New Advert', new_advert_path

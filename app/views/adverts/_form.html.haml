@@ -1,0 +1,10 @@
+= simple_form_for @advert, html: { multipart: true } do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.hidden_field :user_id, value: current_user.try(:id)
+    = f.input :description
+    = f.file_field :image
+
+  .form-actions
+    = f.button :submit

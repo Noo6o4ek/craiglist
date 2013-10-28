@@ -1,4 +1,6 @@
 Craiglist::Application.routes.draw do
+  resources :adverts
+
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callback"}
   resources :users
 
