@@ -3,6 +3,8 @@
 
   .form-inputs
     = f.hidden_field :user_id, value: current_user.try(:id)
+    = f.label "Tags (separated by comas)"
+    = f.text_field :tag_list
     = f.input :description
     = f.file_field :image
 

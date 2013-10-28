@@ -7,5 +7,7 @@ class Advert < ActiveRecord::Base
                     :storage => :dropbox,
                     :dropbox_credentials => Rails.root.join("config/dropbox.yml")
 
+  acts_as_taggable
+
   validates_presence_of :user_id, base: "You should be logged in to create adverts"
 end

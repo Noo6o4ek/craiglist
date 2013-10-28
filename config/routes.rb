@@ -1,5 +1,6 @@
 Craiglist::Application.routes.draw do
   resources :adverts
+  get 'tags/:tag', to: 'adverts#index', as: :tag
 
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callback"}
   resources :users
@@ -9,7 +10,7 @@ Craiglist::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'users#index'
+  root 'adverts#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

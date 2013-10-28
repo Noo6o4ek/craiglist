@@ -7,6 +7,7 @@
     .span9
       = image_tag(advert.image.url(:thumb), align: 'left')
       = advert.description.truncate(160, :separator => ' ')
+      = raw advert.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
       = link_to 'Show', advert
       = link_to 'Edit', edit_advert_path(advert)
       = link_to 'Destroy', advert, :method => :delete, :data => { :confirm => 'Are you sure?' }

@@ -54,10 +54,9 @@
           .well.sidebar-nav
             %h3 Sidebar
             %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+              %li.nav-header Adverts tags cloud:
+              - tag_cloud Advert.tag_counts( limit: 10, order: "count desc"), [] do |tag, c|
+                %li= link_to "#{tag.name}: #{tag.count}", tag_path(tag.name)
     
       %footer
         %p &copy; Company 2013
