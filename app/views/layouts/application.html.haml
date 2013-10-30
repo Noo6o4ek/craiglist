@@ -54,10 +54,19 @@
           .well.sidebar-nav
             %h3 Sidebar
             %ul.nav.nav-list
-              %li.nav-header Adverts tags cloud:
-              - tag_cloud Advert.tag_counts( limit: 10, order: "count desc"), [] do |tag, c|
-                %li= link_to "#{tag.name}: #{tag.count}", tag_path(tag.name)
-    
+              %li.nav-header Search
+              %li
+              / = form_for @search, :url => adverts_path, :html => {:method => :get} do |f|
+              /   = f.label :description_contains
+              /   = f.text_field :description_contains
+              /   %br/
+              /   / = f.label :comments_created_at_greater_than, 'With comments after'
+              /   / = f.datetime_select :comments_created_at_greater_than, :include_blank => true
+              /   = f.submit
+              = simple_form_for :search, url: adverts_path, :method => 'get', :html => { :class => "form-search" } do |f|
+                = f.input :description, label: "Description", required: false
+                = f.input :user, collection: User.all.map { |u| [u.full_name, u.id] }, label: "Author", required: false
+                = f.submit "Search"    
       %footer
         %p &copy; Company 2013
         = yield :scripts

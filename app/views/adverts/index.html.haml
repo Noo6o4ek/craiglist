@@ -2,17 +2,28 @@
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
 
-- @adverts.each do |advert|
-  .row
-    .span9
-      = image_tag(advert.image.url(:thumb), align: 'left')
-      = advert.description.truncate(160, :separator => ' ')
-      = raw advert.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
-      = link_to 'Show', advert
-      = link_to 'Edit', edit_advert_path(advert)
-      = link_to 'Destroy', advert, :method => :delete, :data => { :confirm => 'Are you sure?' }
-      %br
+- tag_cloud Advert.tag_counts( limit: 10, order: "count desc"), [] do |tag, c|
+  = link_to "#{tag.name}: #{tag.count}", tag_path(tag.name)
+%table.table.table-striped
+  %thead
+    %tr
+      %th Opened
+      %th
+      %th Description
+      %th Author
+      %th
 
-%br
+  %tbody
+    - @adverts.each do |advert|
+      %tr
+        %td= advert.created_at
+        %td= image_tag advert.image.url(:thumb)
+        %td= link_to advert.description.truncate(160, :separator => ' '), advert
+        %td= User.find(advert.user_id).try(:full_name)
+        %td
+          - if can? :update, advert
+            = link_to t('.edit', :default => t("helpers.links.edit")), edit_advert_path(advert), :class => 'btn btn-mini'
+          - if can? :destroy, advert
+            = link_to t('.destroy', :default => t("helpers.links.destroy")), advert_path(advert), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
 
 = link_to 'New Advert', new_advert_path

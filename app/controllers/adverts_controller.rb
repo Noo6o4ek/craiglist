@@ -4,10 +4,10 @@ class AdvertsController < ApplicationController
   # GET /adverts
   # GET /adverts.json
   def index
-    if params[:tag]
-      @adverts = Advert.tagged_with(params[:tag])
-    else
-      @adverts = Advert.all
+    @adverts = params[:tag] ? Advert.tagged_with(params[:tag]) : Advert.all
+    if params[:search]
+      @adverts = @adverts.where('description LIKE ?', "%#{params[:search][:description]}%") if params[:search][:description].present?
+      @adverts = @adverts.where(user_id: params[:search][:user]) if params[:search][:user].present?
     end
   end
 

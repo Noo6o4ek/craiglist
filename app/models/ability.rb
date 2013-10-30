@@ -15,6 +15,11 @@ class Ability
       can :manage, :all
     when 'moderator'
       can :read, :all
+    when 'user'
+      can :read, :all
+      can :manage, Advert do |advert|
+        advert.user_id == user.id
+      end
     else
       can :read, :all
     end

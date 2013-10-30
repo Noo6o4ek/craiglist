@@ -18,10 +18,7 @@ ActiveRecord::Schema.define(version: 20131028202324) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+    t.string   "image"
   end
 
   create_table "taggings", force: true do |t|
@@ -54,6 +51,7 @@ ActiveRecord::Schema.define(version: 20131028202324) do
     t.string   "adress"
     t.string   "city"
     t.string   "state"
+    t.string   "country"
     t.integer  "zip"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -68,7 +66,6 @@ ActiveRecord::Schema.define(version: 20131028202324) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.integer  "role_id"
-    t.string   "country"
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "gmaps"
