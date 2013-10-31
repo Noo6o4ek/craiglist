@@ -15,6 +15,7 @@ class Ability
       can :manage, :all
     when 'moderator'
       can :read, :all
+      can :manage, Advert
     when 'user'
       can :read, :all
       can :manage, Advert do |advert|

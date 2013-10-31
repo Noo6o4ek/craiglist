@@ -3,14 +3,16 @@
   = f.input :full_name
   = f.input :email
   = f.input :birthday, as: :date
-  = f.input :country
-  = f.input :adress
-  = f.input :city
-  = f.input :state
-  = f.input :zip
+  = f.input :country, :input_html => {:onchange => "Gmaps.loadMaps()"}
+  = f.input :adress, :input_html => {:onchange => "Gmaps.loadMaps()"}
+  = f.input :city, :input_html => {:onchange => "Gmaps.loadMaps()"}
+  = f.input :state, :input_html => {:onchange => "Gmaps.loadMaps()"}
+  = f.input :zip, :input_html => {:onchange => "Gmaps.loadMaps()"}
   / = f.association :user_role
   = f.association :user_role, collection: UserRoles.all.map{ |r| [r.name, r.id] }, as: :radio_buttons
   / = f.association :user_role, collection: (@user.role_level_roles || []).map{ |u| [u.full_name, u.id] }, prompt: t('users.form.select_user_role'), style: 'display:none;', include_blank: false
+
+  = gmaps4rails(@json)
   .form-actions
     = f.submit nil, :class => 'btn btn-success'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn btn-primary'

@@ -18,7 +18,7 @@
       %tr
         %td= advert.created_at.strftime('%b %e %H:%M')
         %td= image_tag advert.image.url(:thumb)
-        %td= link_to advert.description.truncate(160, :separator => ' '), advert
+        %td=  raw RedCloth.new("#{advert.description.truncate(160, :separator => ' ')}", [:filter_html]).to_html
         %td= User.find(advert.user_id).try(:full_name)
         %td
           - if can? :update, advert

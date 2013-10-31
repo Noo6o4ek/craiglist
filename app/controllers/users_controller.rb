@@ -20,6 +20,8 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @json = @user.to_gmaps4rails
+    puts @json
   end
 
   # POST /users

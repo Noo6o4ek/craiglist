@@ -21,11 +21,9 @@ gem 'country_select'
 gem 'gmaps4rails'
 gem 'omniauth-twitter'
 gem 'cancan'
-#gem "paperclip", :git => "http://github.com/thoughtbot/paperclip.git"
-# gem 'carrierwave'
-# gem 'acts_as_commentable'
 gem "paperclip-dropbox"
 gem 'acts-as-taggable-on'
+gem "RedCloth"
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
