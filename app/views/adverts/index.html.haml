@@ -16,7 +16,7 @@
   %tbody
     - @adverts.each do |advert|
       %tr
-        %td= advert.created_at
+        %td= advert.created_at.strftime('%b %e %H:%M')
         %td= image_tag advert.image.url(:thumb)
         %td= link_to advert.description.truncate(160, :separator => ' '), advert
         %td= User.find(advert.user_id).try(:full_name)
@@ -26,4 +26,4 @@
           - if can? :destroy, advert
             = link_to t('.destroy', :default => t("helpers.links.destroy")), advert_path(advert), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
 
-= link_to 'New Advert', new_advert_path
+= link_to 'New Advert', new_advert_path, :class => 'btn btn-primary'

@@ -27,22 +27,11 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="#") Craiglist
+          %a.brand Craiglist
           .container.nav-collapse
             %ul.nav
               %li= link_to "Users", users_path
               %li= link_to "Adverts", adverts_path
-              %li= link_to "Link 3", "/path3"
-              - if user_signed_in?
-                Signed in as 
-                = link_to "#{current_user.login}", edit_user_registration_path
-                Not you?
-                = link_to "Sign out", destroy_user_session_path, :method => :delete
-              - else
-                = link_to "Sign with Twitter", user_omniauth_authorize_path(:twitter)
-                = link_to "Sign up", new_user_registration_path
-                or 
-                = link_to "sign in", new_user_session_path
 
     .container
 
@@ -52,21 +41,23 @@
           = yield
         .span3
           .well.sidebar-nav
-            %h3 Sidebar
+            - if user_signed_in?
+              Signed in as
+              = link_to "#{current_user.login}", edit_user_registration_path
+              Not you?
+              = link_to "Sign out", destroy_user_session_path, :method => :delete
+            - else
+              = link_to "Sign up", new_user_registration_path
+              or
+              = link_to "sign in", new_user_session_path
+              or
+              = link_to "Sign up with Twitter", user_omniauth_authorize_path(:twitter)
             %ul.nav.nav-list
-              %li.nav-header Search
+              %li.nav-header Adverts filter
               %li
-              / = form_for @search, :url => adverts_path, :html => {:method => :get} do |f|
-              /   = f.label :description_contains
-              /   = f.text_field :description_contains
-              /   %br/
-              /   / = f.label :comments_created_at_greater_than, 'With comments after'
-              /   / = f.datetime_select :comments_created_at_greater_than, :include_blank => true
-              /   = f.submit
               = simple_form_for :search, url: adverts_path, :method => 'get', :html => { :class => "form-search" } do |f|
                 = f.input :description, label: "Description", required: false
                 = f.input :user, collection: User.all.map { |u| [u.full_name, u.id] }, label: "Author", required: false
-                = f.submit "Search"    
+                = f.submit "Search", class: "btn btn-primary btn-small"
       %footer
-        %p &copy; Company 2013
         = yield :scripts
