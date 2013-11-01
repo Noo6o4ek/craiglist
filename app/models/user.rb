@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   belongs_to :user_role, class_name: 'UserRole', foreign_key: 'role_id'
   has_many :adverts
+  has_many :comments, dependent: :destroy
   
   validates :full_name, :email, :login, :birthday, :country, :adress, :city, :state, :zip, presence: true
   #validates_format_of :zip, with: /\A\d{5}(-\d{4})?\Z/, message: "Zip format is wrong. Shold match 5-digit or 9-dighit format"

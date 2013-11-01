@@ -14,6 +14,7 @@ class AdvertsController < ApplicationController
   # GET /adverts/1
   # GET /adverts/1.json
   def show
+    @comment = @advert.comments.build(user_id: current_user.id)
   end
 
   # GET /adverts/new
@@ -73,6 +74,6 @@ class AdvertsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def advert_params
-      params.require(:advert).permit(:description, :user_id, :image, :tag_list)
+      params.require(:advert).permit(:description, :user_id, :image, :tag_list, :comments)
     end
 end

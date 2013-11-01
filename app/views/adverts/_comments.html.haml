@@ -1,0 +1,5 @@
+- @advert.comments.each do |comment|
+  %br
+  = comment.body
+  = comment.try(:user).try(:full_name)
+  = link_to "×", comment_path(comment), :method => :delete, :remote => true, data: { confirm: "Are you sure you want to remove this comment?"}, :disable_with => "×", :class => 'close'

@@ -1,9 +1,12 @@
 Craiglist::Application.routes.draw do
-  resources :adverts
+  resources :adverts do 
+    resources :comments
+  end
   get 'tags/:tag', to: 'adverts#index', as: :tag
 
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callback"}
   resources :users
+  resources :comments
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
