@@ -1,5 +1,0 @@
-= simple_form_for @comment, html: { method: :post, remote: true } do |comment|
-    = comment.input :body, label: "Your comment:"
-    = comment.input :user_id, value: current_user.id, as: :hidden
-    = comment.input :advert_id, as: :hidden
-    = comment.submit
