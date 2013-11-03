@@ -1,0 +1,10 @@
+.comment-form
+  - if user_signed_in?
+    = simple_form_for @new_comment, remote: true do |f|
+      = f.input :body, label: false
+      = f.input :user_id, value: current_user.id, as: :hidden
+      = f.input :advert_id, as: :hidden
+      = f.button :submit, class: "btn-small btn-primary"
+  - else
+    = link_to "Sign in", new_user_session_path
+    to leave the comment.

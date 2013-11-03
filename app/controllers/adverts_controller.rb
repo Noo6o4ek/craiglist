@@ -14,7 +14,7 @@ class AdvertsController < ApplicationController
   # GET /adverts/1
   # GET /adverts/1.json
   def show
-    @comment = @advert.comments.build(user_id: current_user.id)
+    @new_comment = @advert.comments.build(user_id: current_user.id) if user_signed_in?
   end
 
   # GET /adverts/new

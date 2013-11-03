@@ -5,7 +5,7 @@ one:
   login: MyString
   email: MyString
   birthday: 2013-10-17
-  adress: MyString
+  address: MyString
   city: MyString
   state: MyString
   zip: 1
@@ -15,7 +15,7 @@ two:
   login: MyString
   email: MyString
   birthday: 2013-10-17
-  adress: MyString
+  address: MyString
   city: MyString
   state: MyString
   zip: 1

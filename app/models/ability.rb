@@ -16,10 +16,14 @@ class Ability
     when 'moderator'
       can :read, :all
       can :manage, Advert
+      can :manage, Comment
     when 'user'
       can :read, :all
-      can :manage, Advert do |advert|
-        advert.user_id == user.id
+      can :manage, Advert do |item|
+        item.user_id == user.id
+      end
+      can :manage, Comment do |item|
+        item.user_id == user.id
       end
     else
       can :read, :all

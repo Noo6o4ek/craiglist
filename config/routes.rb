@@ -1,10 +1,10 @@
 Craiglist::Application.routes.draw do
-  resources :adverts do 
+  resources :adverts do
     resources :comments
   end
   get 'tags/:tag', to: 'adverts#index', as: :tag
 
-  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callback"}
+  devise_for :users, controllers: { omniauth_callbacks: "omniauth_callback" }
   resources :users
   resources :comments
 
@@ -49,7 +49,7 @@ Craiglist::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

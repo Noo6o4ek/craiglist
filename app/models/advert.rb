@@ -6,7 +6,8 @@ class Advert < ActiveRecord::Base
                     :url => "/system/:attachment/:id/:style/:basename.:extension",
                     :path => "/system/:attachment/:id/:style/:basename.:extension",
                     :storage => :dropbox,
-                    :dropbox_credentials => Rails.root.join("config/dropbox.yml")
+                    :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
+                    :default_url => "https://dl.dropboxusercontent.com/u/4217845/system/images/missing/thumb/missing.png"
 
   acts_as_taggable
 
