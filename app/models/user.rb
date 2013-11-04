@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :trackable, :validatable
   acts_as_gmappable
 
-  belongs_to :user_role, class_name: 'UserRole', foreign_key: 'role_id'
+  belongs_to :user_role, class_name: 'UserRoles', foreign_key: 'role_id'
   has_many :adverts
   has_many :comments, dependent: :destroy
 

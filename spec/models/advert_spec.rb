@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 describe "advert specs" do
+  describe "handles validations" do
+    subject { build :advert }
+    it { should validate_presence_of :user_id }
+    it { should have_many(:comments) }
+    it { should belong_to(:user) }
+  end
 
   it "builds advert" do
     advert = FactoryGirl.build(:advert)
