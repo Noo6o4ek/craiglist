@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe User do
+describe "user specs" do
 
   let!(:user) { build :user }
   let!(:admin) { build :admin }
@@ -9,8 +9,6 @@ describe User do
   it "builds user" do
     user.full_name.should == "User"
     user.role_name.should == "user"
-    user.gmaps4rails_address.should == "United States, 4 Pennsylvania Plaza, New York, NY, 10001"
-    # user.to_gmaps4rails.should == "[{\"lat\":40.7509,\"lng\":-73.9943}]"
   end
 
   it "builds admin" do
@@ -21,5 +19,18 @@ describe User do
   it "builds moderator" do
     moderator.full_name.should == "Moderator"
     moderator.role_name.should == "moderator"
+  end
+
+  describe "gmaps4rails" do
+    it "should render proper coordinates for admin user" do
+      admin = User.where(login: "admin").first
+      admin.to_gmaps4rails.should == "[{\"lat\":48.0021,\"lng\":37.6962}]"
+    end
+  end
+
+  describe "abilities" do
+    it "user can create articles" do
+      # user.
+    end
   end
 end

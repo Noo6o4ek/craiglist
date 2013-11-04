@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :user do
     login 'user'
-    email 'user@example.com'
+    email { |n| "user#{n}@example.com" }#'user@example.com'
     password 'pasSw0rd!'
     password_confirmation 'pasSw0rd!'
     full_name 'User'
@@ -11,6 +11,7 @@ FactoryGirl.define do
     state "NY"
     zip 10001
     country "United States"
+    birthday Time.now
   end
 
   factory :admin, class: User do
