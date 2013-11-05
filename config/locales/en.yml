@@ -21,3 +21,8 @@
 
 en:
   hello: "Hello world"
+  advert:
+    index:
+      opened: "Opened"
+      description: "Description"
+      author: "Author"
