@@ -21,10 +21,10 @@ class Ability
       can :read, :all
       can :manage, Advert do |item|
         item.user_id == user.id
-      end
+      end if user.id?
       can :manage, Comment do |item|
         item.user_id == user.id
-      end
+      end if user.id?
     else
       can :read, :all
     end

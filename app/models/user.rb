@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :trackable, :validatable
-  acts_as_gmappable
+  # acts_as_gmappable
 
   belongs_to :user_role, class_name: 'UserRoles', foreign_key: 'role_id'
   has_many :adverts

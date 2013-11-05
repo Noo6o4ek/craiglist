@@ -27,5 +27,5 @@ Advert tags:
           - if can? :destroy, advert
             = link_to t('.destroy', :default => t("helpers.links.destroy")), advert_path(advert), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
 
--if can? :create, Advert
+- if can? :create, Advert
   = link_to 'New Advert', new_advert_path, :class => 'btn btn-primary'
