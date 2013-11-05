@@ -4,9 +4,14 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 # Use mysql as the database for Active Record
-gem 'mysql2'
+group :development, :test do
+  gem 'mysql2'
+end
 
-# gem 'pg'
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 
 # Use SCSS for stylesheets
 # gem 'sass-rails', '~> 4.0.0'
@@ -68,4 +73,4 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-ruby "2.0.0"
+# ruby "2.0.0"
