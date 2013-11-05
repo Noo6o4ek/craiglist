@@ -42,6 +42,7 @@ RSpec.configure do |config|
   config.order = "random"
 
   config.include FactoryGirl::Syntax::Methods
+  config.include Devise::TestHelpers, type: :controller
 
   config.after do
     DatabaseCleaner.clean

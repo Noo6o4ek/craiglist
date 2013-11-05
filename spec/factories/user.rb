@@ -37,10 +37,10 @@ FactoryGirl.define do
     full_name 'Moderator'
     role_id { ::UserRoles.where(name: 'moderator').first.id }
     birthday Time.now
-    country "Украина"
-    address "проспект Победы, 37"
-    city "Киев"
-    state "Киев"
+    country "Ukraine"
+    address "Pobedi, 37"
+    city "Kiev"
+    state "Kiev"
     zip 03056
   end
 end
