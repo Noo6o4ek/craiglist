@@ -55,7 +55,7 @@ describe "user specs" do
     end
 
     it "comments" do
-      expect{ user.comments.create(body: "testing...") }.to change{ Comment.count }.by(1)
+      expect{ user.comments.create(body: "testing...", advert_id: advert.id) }.to change{ Comment.count }.by(1)
     end
   end
 

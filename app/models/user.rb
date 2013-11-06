@@ -4,17 +4,17 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :trackable, :validatable
-  # acts_as_gmappable
+  acts_as_gmappable
 
   belongs_to :user_role, class_name: 'UserRoles', foreign_key: 'role_id'
-  has_many :adverts
+  has_many :adverts, dependent: :destroy
   has_many :comments, dependent: :destroy
 
   validates :full_name, :email, :login, :birthday, :country, :address, :city, :state, :zip, presence: true
   #validates_format_of :zip, with: /\A\d{5}(-\d{4})?\Z/, message: "Zip format is wrong. Shold match 5-digit or 9-dighit format"
 
   def role_name
-    UserRoles.find(self.role_id).try(:name)
+    user_role.try(:name) || 'guest'
   end
 
   def gmaps4rails_address

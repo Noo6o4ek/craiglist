@@ -7,6 +7,8 @@ require 'rspec/autorun'
 require "cancan/matchers"
 require 'database_cleaner'
 require "shoulda/matchers"
+require 'coveralls'
+Coveralls.wear!('rails')
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.

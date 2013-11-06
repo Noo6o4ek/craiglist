@@ -22,7 +22,7 @@
   %dt.strong= model_class.human_attribute_name(:zip) + ':'
   %dd= @user.zip
   - if @user.role_id?
-    %dt.strong Role level:
+    %dt.strong= t('.role')
     %dd= @user.role_name
 
   = gmaps4rails(@json)

@@ -4,20 +4,20 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 # Use mysql as the database for Active Record
-# group :development, :test do
-gem 'mysql2'
-# end
+group :development, :test do
+  gem 'mysql2'
+end
 
-# group :production do
-# gem 'pg'
-#   gem 'rails_12factor'
-# end
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 
 # Use SCSS for stylesheets
 # gem 'sass-rails', '~> 4.0.0'
 gem 'devise', '3.0.0.rc'
 
-gem 'rb-readline' #remove it
+gem 'rb-readline', '~> 0.4.2'
 
 gem "therubyracer"
 gem "less-rails"
@@ -25,12 +25,13 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem 'haml-rails'
 gem 'simple_form'
 gem 'country_select'
-gem 'gmaps4rails'
+gem 'gmaps4rails', '1.5.6'
 gem 'omniauth-twitter'
 gem 'cancan'
 gem "paperclip-dropbox"
 gem 'acts-as-taggable-on'
 gem "RedCloth"
+gem 'coveralls', require: false
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

@@ -11,10 +11,8 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: craiglist2_development
+  database: craiglist_development
   pool: 5
-  username: root
-  password:
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -23,10 +21,8 @@ development:
 test:
   adapter: mysql2
   encoding: utf8
-  database: craiglist2_test
+  database: craiglist_test
   pool: 5
-  username: root
-  password:
   socket: /var/run/mysqld/mysqld.sock
 
 production:
