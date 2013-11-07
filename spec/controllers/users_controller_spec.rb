@@ -1,18 +1,17 @@
 require 'spec_helper'
 
-describe AdvertsController do
+describe UsersController do
   render_views
 
-  let(:user) { create :user }
+  let(:admin) { create :admin }
   let(:advert) { create :advert }
-  let(:admin_advert) { create :admin_advert }
 
   before do
-    sign_in user
+    sign_in admin
   end
 
   describe "#index" do
-    it "renders advert" do
+    it "renders user" do
       get :index
       response.should be_success
       expect(response).to render_template("index")
@@ -21,14 +20,14 @@ describe AdvertsController do
 
   describe "#show" do
     it 'is success' do
-      get :show, id: advert.to_param
+      get :show, id: admin.to_param
       response.should be_success
     end
   end
 
   describe '#edit' do
     it 'is success' do
-      get :show, id: advert.to_param
+      get :show, id: admin.to_param
       response.should be_success
     end
   end
