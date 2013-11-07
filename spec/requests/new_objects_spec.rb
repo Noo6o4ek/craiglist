@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Not logged in user can't create" do
   let(:user) { build :user }
-  let (:advert) { create :advert }
+  let(:advert) { create :advert }
 
   it "advert" do
     visit new_advert_path

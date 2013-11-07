@@ -18,13 +18,13 @@ describe "user specs" do
     it { should belong_to(:user_role) }
   end
 
-  let!(:user) { create :user }
-  let!(:himself) { User.find(user.id) }
-  let!(:admin) { create :admin }
-  let!(:moderator) { create :moderator }
-  let!(:advert) { create :advert }
-  let!(:admin_advert) { create :admin_advert }
-  let!(:comment) { create :comment }
+  let(:user) { create :user }
+  let(:himself) { User.find(user.id) }
+  let(:admin) { create :admin }
+  let(:moderator) { create :moderator }
+  let(:advert) { create :advert }
+  let(:admin_advert) { create :admin_advert }
+  let(:comment) { create :comment }
 
   describe "FactoryGirl" do
     it "builds valid users" do

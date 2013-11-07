@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "User creates advert" do
   let(:user) { create :user }
-  let (:advert) { build :advert }
+  let(:advert) { build :advert }
 
   it "succesfully creates" do
     visit root_url
