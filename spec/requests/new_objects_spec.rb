@@ -29,7 +29,7 @@ describe "Logged in user can create" do
   let(:advert) { build :advert }
   let(:admin_advert) { create :admin_advert }
 
-  before(:each) do 
+  before(:each) do
     visit "/users/sign_in"
     fill_in "Login", with: user.login
     fill_in "Password", with: user.password

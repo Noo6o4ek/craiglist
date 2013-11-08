@@ -44,7 +44,7 @@ describe AdvertsController do
       flash[:notice].should eq "Advert was successfully updated."
     end
 
-    it "renders error" do 
+    it "renders error" do
       fail_update
       flash[:error].should eq "You can't perform this action."
     end

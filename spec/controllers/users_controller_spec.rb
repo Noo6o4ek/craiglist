@@ -31,7 +31,7 @@ describe UsersController do
       response.should be_success
     end
   end
-  
+
   describe '#new' do
     it 'is success' do
       get :new
