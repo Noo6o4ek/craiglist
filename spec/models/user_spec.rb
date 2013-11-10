@@ -61,9 +61,12 @@ describe "user specs" do
 
   describe "gmaps4rails" do
     it "should render proper coordinates" do
-      admin.to_gmaps4rails.should eq "[{\"lat\":40.7410262,\"lng\":-73.9897806}]"
-      moderator.to_gmaps4rails.should eq "[{\"lat\":50.4486167,\"lng\":30.45698759999999}]"
-      user.to_gmaps4rails.should eq "[{\"lat\":40.7508707,\"lng\":-73.99426609999999}]"
+      admin.latitude.should eq 40.7410262
+      admin.longitude.should eq -73.9897806
+      moderator.latitude.should eq 50.4486167
+      moderator.longitude.should eq 30.45698759999999
+      user.latitude.should eq 40.7508707
+      user.longitude.should eq -73.99426609999999
     end
   end
 
