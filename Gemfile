@@ -10,7 +10,7 @@ gem 'mysql2'
 
 # Use SCSS for stylesheets
 # gem 'sass-rails', '~> 4.0.0'
-gem 'devise', '3.0.0.rc'
+gem 'devise', '3.5.10'
 
 gem 'rb-readline' #remove it
 
